@@ -10,6 +10,7 @@ import Root from './Components/Root/Root.jsx';
 import Home from './Components/Home/Home.jsx';
 import ListedBooks from './Components/ListedBooks/ListedBooks.jsx';
 import PagesToRead from './Components/PagesToRead/PagesToRead.jsx';
+import BookPage from './Components/BookPage/BookPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home></Home>,
+        loader: () => fetch("books.json")
       },
       {
         path:"/listed-books",
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/:bookId",
+    element: <BookPage></BookPage>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

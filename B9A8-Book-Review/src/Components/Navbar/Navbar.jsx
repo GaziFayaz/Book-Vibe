@@ -9,7 +9,7 @@ const Navbar = () => {
 				<NavLink
 					to={`/`}
 					className={({ isActive }) =>
-						isActive ? `active text-lg ${activeBtn}` : "btn text-lg"
+						isActive ? `active text-lg ${activeBtn}` : "btn text-lg bg-white border-none shadow-none"
 					}
 				>
 					Home
@@ -19,7 +19,7 @@ const Navbar = () => {
 				<NavLink
 					to={`/listed-books`}
 					className={({ isActive }) =>
-						isActive ? `active text-lg ${activeBtn}` : " btn text-lg"
+						isActive ? `active text-lg ${activeBtn}` : " btn text-lg bg-white border-none shadow-none"
 					}
 				>
 					Listed Books
@@ -29,7 +29,7 @@ const Navbar = () => {
 				<NavLink
 					to={`/pages-to-read`}
 					className={({ isActive }) =>
-						isActive ? `active text-lg ${activeBtn}` : "btn text-lg"
+						isActive ? `active text-lg ${activeBtn}` : "btn text-lg bg-white border-none shadow-none"
 					}
 				>
 					Pages to Read
