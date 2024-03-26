@@ -9,11 +9,11 @@ const AllBooks = () => {
 			.then((data) => setBooks(data));
 	}, []);
 	return (
-		<div className="flex flex-col items-center ">
+		<div className="flex flex-col items-center w-full">
 			<h1 className="all-books-title font-playfair text-4xl font-semibold">
 				Books
 			</h1>
-			<div className="all-books-grid grid grid-cols-3 gap-4">
+			<div className="all-books-grid grid grid-cols-3 gap-4 w-full">
 				{books.map((book) => (
 					<BookCard book={book} key={book.bookId}></BookCard>
 				))}
