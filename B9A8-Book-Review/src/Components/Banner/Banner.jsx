@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
 	return (
@@ -8,9 +9,11 @@ const Banner = () => {
 					<h1 className="banner-title font-playfair text-6xl font-bold leading-[84px]">
 						Books to freshen up your bookshelf
 					</h1>
-					<button className="btn bg-default text-neutral-50 text-xl font-bold px-5 py-4 h-fit self-start">
-						View The List
-					</button>
+					<Link to={'/listed-books'}>
+						<button className="btn bg-default text-neutral-50 text-xl font-bold px-5 py-4 h-fit self-start">
+							View The List
+						</button>
+					</Link>
 				</div>
 				<img
 					src="https://i.ibb.co/NmqyBT1/The-Dating-Playbook-for-Men.png"
