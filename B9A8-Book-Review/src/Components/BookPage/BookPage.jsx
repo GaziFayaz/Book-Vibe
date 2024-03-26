@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import readBook from "../../utilities/readBook";
+// import wishlistBook from "../../utilities/wishlistBook";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BookPage = () => {
 	const books = useLoaderData();
@@ -17,7 +21,33 @@ const BookPage = () => {
 		publisher,
 		yearOfPublishing,
 	} = books.find((book) => book.bookId == bookId);
-	// console.log(book)
+
+	const successToast = () =>
+		toast.success("Added to Read Books!", {
+			position: "top-right",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "light",
+			transition: Bounce,
+		});
+
+	const errorToast = () =>
+		toast.error("Book Already Read!", {
+			position: "top-right",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "light",
+			transition: Bounce,
+		});
+
 	return (
 		<div className="flex flex-col gap-10 items-center">
 			<div className="book-details grid grid-cols-2 w-full gap-12 mt-2">
@@ -75,8 +105,22 @@ const BookPage = () => {
 					</div>
 
 					<div className="flex gap-4">
-						<button className="btn btn-outline">Read</button>
-						<button className="btn bg-[#50B1C9] text-white">Wishlist</button>
+						<button
+							onClick={() => {
+								readBook(parseInt(bookId), successToast, errorToast);
+							}}
+							className="btn btn-outline"
+						>
+							Read
+						</button>
+						<ToastContainer />
+						<button
+							onClick={() => wishlistBook()}
+							className="btn bg-[#50B1C9] text-white"
+						>
+							Wishlist
+						</button>
+						<ToastContainer />
 					</div>
 				</div>
 			</div>
