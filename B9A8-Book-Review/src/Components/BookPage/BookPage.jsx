@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import readBook from "../../utilities/readBook";
-// import wishlistBook from "../../utilities/wishlistBook";
+import wishlistBook from "../../utilities/wishlistBook";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,9 +21,17 @@ const BookPage = () => {
 		publisher,
 		yearOfPublishing,
 	} = books.find((book) => book.bookId == bookId);
+	const readKey = "readBooks";
+	const wishlistKey = "wishlistBooks"
 
-	const successToast = () =>
-		toast.success("Added to Read Books!", {
+	useEffect(() => {
+		if(!localStorage.getItem(readKey)) localStorage.setItem(readKey, JSON.stringify([]))
+		if(!localStorage.getItem(wishlistKey)) localStorage.setItem(wishlistKey, JSON.stringify([]))
+	}, [])
+	
+
+	const successToast = (message) =>
+		toast.success(message, {
 			position: "top-right",
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -35,8 +43,8 @@ const BookPage = () => {
 			transition: Bounce,
 		});
 
-	const errorToast = () =>
-		toast.error("Book Already Read!", {
+	const errorToast = (message) =>
+		toast.error(message, {
 			position: "top-right",
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -107,7 +115,7 @@ const BookPage = () => {
 					<div className="flex gap-4">
 						<button
 							onClick={() => {
-								readBook(parseInt(bookId), successToast, errorToast);
+								readBook(readKey, parseInt(bookId), successToast, errorToast);
 							}}
 							className="btn btn-outline"
 						>
@@ -115,7 +123,7 @@ const BookPage = () => {
 						</button>
 						<ToastContainer />
 						<button
-							onClick={() => wishlistBook()}
+							onClick={() => wishlistBook(readKey, wishlistKey, parseInt(bookId), successToast, errorToast)}
 							className="btn bg-[#50B1C9] text-white"
 						>
 							Wishlist
