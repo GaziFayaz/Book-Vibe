@@ -1,45 +1,41 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './Components/Root/Root.jsx';
-import Home from './Components/Home/Home.jsx';
-import ListedBooks from './Components/ListedBooks/ListedBooks.jsx';
-import PagesToRead from './Components/PagesToRead/PagesToRead.jsx';
-import BookPage from './Components/BookPage/BookPage.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Components/Root/Root.jsx";
+import Home from "./Components/Home/Home.jsx";
+import ListedBooks from "./Components/ListedBooks/ListedBooks.jsx";
+import PagesToRead from "./Components/PagesToRead/PagesToRead.jsx";
+import BookPage from "./Components/BookPage/BookPage.jsx";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root></Root>,
-    children:[
-      {
-        path:"/",
-        element: <Home></Home>,
-        loader: () => fetch("books.json")
-      },
-      {
-        path:"/listed-books",
-        element: <ListedBooks></ListedBooks>
-      },
-      {
-        path:"/pages-to-read",
-        element: <PagesToRead></PagesToRead>
-      }
-    ]
-  },
-  {
-    path: "/:bookId",
-    element: <BookPage></BookPage>
-  }
+	{
+		path: "/",
+		element: <Root></Root>,
+		children: [
+			{
+				path: "/",
+				element: <Home></Home>,
+			},
+			{
+				path: "/listed-books",
+				element: <ListedBooks></ListedBooks>,
+			},
+			{
+				path: "/pages-to-read",
+				element: <PagesToRead></PagesToRead>,
+			},
+			{
+				path: "book/:bookId",
+				element: <BookPage></BookPage>,
+				loader: () => fetch("../books.json"),
+			},
+		],
+	},
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
+);

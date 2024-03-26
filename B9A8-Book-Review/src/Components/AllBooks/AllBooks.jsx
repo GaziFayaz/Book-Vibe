@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
 
-const AllBooks = ({ books }) => {
-  console.log(books)
+const AllBooks = () => {
+	const [books, setBooks] = useState([]);
+	useEffect(() => {
+		fetch("books.json")
+			.then((res) => res.json())
+			.then((data) => setBooks(data));
+	}, []);
 	return (
 		<div className="flex flex-col items-center ">
 			<h1 className="all-books-title font-playfair text-4xl font-semibold">
