@@ -58,7 +58,7 @@ const BookPage = () => {
 
 	return (
 		<div className="flex flex-col gap-10 items-center">
-			<div className="book-details grid grid-cols-2 w-full gap-12 mt-2">
+			<div className="book-details lg:grid lg:grid-cols-2 px-4 lg:px-0 w-full gap-12 mt-2">
 				<div className="book-details-left p-[50px] bg-[#1313130d] rounded-2xl min-h-full flex items-center">
 					<img
 						src={image}

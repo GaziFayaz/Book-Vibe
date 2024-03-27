@@ -19,9 +19,9 @@ const ListedBookCard = ({ book }) => {
 		yearOfPublishing,
 	} = book;
 	return (
-		<div className="card card-side bg-base-100 shadow-xl w-full p-6 border border-gray-300 gap-4">
+		<div className="card card-side flex flex-col lg:flex-row bg-base-100 shadow-xl w-full p-6 border border-gray-300 gap-4">
 			<figure className="rounded-2xl bg-[#1313130D] py-7 px-12">
-				<img src={image} alt="Movie" className="max-h-[172px]" />
+				<img src={image} alt="Movie" className="max-h-[172px] object-contain" />
 			</figure>
 			<div className="card-body p-0">
 				<h2 className="card-title font-playfair font-bold text-2xl">{bookName}</h2>
