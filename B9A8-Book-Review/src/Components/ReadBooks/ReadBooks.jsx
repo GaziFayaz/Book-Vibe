@@ -12,7 +12,6 @@ const ReadBooks = () => {
 	}, []);
 	useEffect(() => {
 		setReadBooksId(JSON.parse(localStorage.getItem("readBooks")));
-		console.log();
 	}, []);
 
 	return (
