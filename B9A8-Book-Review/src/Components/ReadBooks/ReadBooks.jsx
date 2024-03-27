@@ -48,7 +48,7 @@ const ReadBooks = () => {
 
 	return (
 			<div className="flex flex-col w-full mt-10 gap-5">
-			<p>{sortType}</p>
+			{/* <p>{sortType}</p> */}
 			{books.map((book, index) => {
 				if (readBooksId.includes(book.bookId)) {
 					return <ListedBookCard book={book} key={index}></ListedBookCard>;
