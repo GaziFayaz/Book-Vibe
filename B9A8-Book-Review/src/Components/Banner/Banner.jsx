@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
 	return (
 		<section className="banner w-full py-20 lg:px-[120px] bg-[#1313130D] rounded-3xl">
-			<div className="flex flex-col-reverse lg:flex justify-between items-center">
+			<div className="flex flex-col-reverse lg:flex-row justify-between items-center">
 				<div className="flex flex-col w-[60%] gap-12 h-full">
 					<h1 className="banner-title font-playfair text-6xl font-bold leading-[84px]">
 						Books to freshen up your bookshelf
