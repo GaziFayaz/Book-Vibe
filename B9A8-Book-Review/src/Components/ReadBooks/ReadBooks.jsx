@@ -3,23 +3,26 @@ import ListedBookCard from "../ListedBookCard/ListedBookCard";
 
 const ReadBooks = () => {
 	const [books, setBooks] = useState([]);
-  const [readBooksId, setReadBooksId] = useState([])
-  const [readBooks, setReadBooks] = useState([])
+	const [readBooksId, setReadBooksId] = useState([]);
+
 	useEffect(() => {
 		fetch("../books.json")
 			.then((res) => res.json())
 			.then((data) => setBooks(data));
+	}, []);
+	useEffect(() => {
 		setReadBooksId(JSON.parse(localStorage.getItem("readBooks")));
-    setReadBooks(books.filter(book => readBooksId.includes(book.bookId)))
-		// console.log(readBooks);
+		console.log();
 	}, []);
 
 	return (
-		<div className="w-full">
-      {
-        readBooks.map(book => <ListedBookCard key={book.bookId}></ListedBookCard>)
-      }
-    </div>
+		<div className="flex flex-col w-full mt-10 gap-5">
+			{books.map((book,index) => {
+				if (readBooksId.includes(book.bookId)) {
+					return <ListedBookCard book={book} key={index}></ListedBookCard>;
+				}
+			})}
+		</div>
 	);
 };
 

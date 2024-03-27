@@ -33,19 +33,19 @@ const ListedBooks = () => {
 					to={`read-books`}
 					role="tab"
 					className={({ isActive }) =>
-						isActive ? `active tab ${activeTab}` : "tab"
+						isActive ? `active tab  font-bold ${activeTab}` : "tab "
 					}
 				>
-					Tab 1
+					Read Books
 				</NavLink>
 				<NavLink
 					to={`wishlist-books`}
 					role="tab"
 					className={({ isActive }) =>
-						isActive ? `active tab ${activeTab}` : "tab"
+						isActive ? `active tab font-bold ${activeTab}` : "tab  "
 					}
 				>
-					Tab 2
+					Wishlist Books
 				</NavLink>
 			</div>
 			<Outlet></Outlet>

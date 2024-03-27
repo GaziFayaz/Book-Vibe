@@ -19,7 +19,7 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink
-					to={`/listed-books`}
+					to={`/listed-books/read-books`}
 					className={({ isActive }) =>
 						isActive
 							? `active text-lg ${activeBtn}`
