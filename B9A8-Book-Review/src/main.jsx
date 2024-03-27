@@ -10,6 +10,8 @@ import BookPage from "./Components/BookPage/BookPage.jsx";
 import ReadBooks from "./Components/ReadBooks/ReadBooks.jsx";
 import WishlistBooks from "./Components/WishlistBooks/WishlistBooks.jsx";
 import Error from "./Components/Error/Error.jsx";
+import SignIn from "./Components/SignIn/SignIn.jsx";
+import SignUp from "./Components/SignUp/SignUp.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
 			},
 		],
 	},
+			{
+				path: "/signin",
+				element: <SignIn></SignIn>,
+			},
+			{
+				path: "/signup",
+				element: <SignUp></SignUp>
+			}
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

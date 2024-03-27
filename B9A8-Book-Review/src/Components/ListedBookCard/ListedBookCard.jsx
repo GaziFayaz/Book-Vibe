@@ -23,7 +23,7 @@ const ListedBookCard = ({ book }) => {
 			<figure className="rounded-2xl bg-[#1313130D] py-7 px-12">
 				<img src={image} alt="Movie" className="max-h-[172px] object-contain" />
 			</figure>
-			<div className="card-body p-0">
+			<div className="card-body p-0 gap-6">
 				<h2 className="card-title font-playfair font-bold text-2xl">{bookName}</h2>
 				<p className="font-medium">By: {author}</p>
 

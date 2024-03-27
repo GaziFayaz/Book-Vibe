@@ -47,7 +47,6 @@ const ReadBooks = () => {
 	// }
 
 	return (
-		<SortContext.Provider>
 			<div className="flex flex-col w-full mt-10 gap-5">
 			<p>{sortType}</p>
 			{books.map((book, index) => {
@@ -56,7 +55,6 @@ const ReadBooks = () => {
 				}
 			})}
 		</div>
-		</SortContext.Provider>
 		
 	);
 };

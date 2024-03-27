@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 	const activeBtn = "btn btn-outline border-default text-default";
@@ -76,8 +76,8 @@ const Navbar = () => {
 				<ul className="menu menu-horizontal px-1">{routesLinks}</ul>
 			</div>
 			<div className="navbar-end flex gap-3">
-				<a className="btn bg-default text-base-100 font-semibold">Sign In</a>
-				<a className="btn bg-[#59C6D2] text-base-100 font-semibold">Sign Up</a>
+				<Link to={"/signin"} className="btn bg-default text-base-100 font-semibold">Sign In</Link>
+				<Link to={"/signup"} className="btn bg-[#59C6D2] text-base-100 font-semibold">Sign Up</Link>
 			</div>
 		</div>
 	);
