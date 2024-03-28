@@ -2,9 +2,9 @@ import React, { createContext, useState } from "react";
 import { BiSolidChevronDown } from "react-icons/bi";
 import { NavLink, Outlet } from "react-router-dom";
 
-export const SortContext = createContext("rating");
+export const SortContext = createContext("");
 const ListedBooks = () => {
-	const [sortType, setSortType] = useState("rating");
+	const [sortType, setSortType] = useState("");
 	const activeTab = "tab-active";
 	return (
 		<SortContext.Provider value={sortType}>
@@ -34,6 +34,7 @@ const ListedBooks = () => {
 					className="tabs tabs-lifted tabs-lg self-start w-full"
 				>
 					<NavLink
+						onClick={() => setSortType("")}
 						to={`read-books`}
 						role="tab"
 						className={({ isActive }) =>
@@ -43,6 +44,7 @@ const ListedBooks = () => {
 						Read Books
 					</NavLink>
 					<NavLink
+						onClick={() => setSortType("")}
 						to={`wishlist-books`}
 						role="tab"
 						className={({ isActive }) =>
