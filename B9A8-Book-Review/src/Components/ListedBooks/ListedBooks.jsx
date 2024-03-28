@@ -18,14 +18,14 @@ const ListedBooks = () => {
 						<BiSolidChevronDown className="text-xl" />
 					</summary>
 					<ul className="p-2 shadow menu dropdown-content z-[10] rounded-box bg-gray-300 font-semibold items-center">
-						<li onClick={() => setSortType("rating")}>
-							<a className="text-nowrap">Rating</a>
+						<li onClick={() => setSortType("rating")} className="w-full">
+							<a className="text-nowrap w-full justify-center">Rating</a>
 						</li>
-						<li onClick={() => setSortType("pageNumber")}>
-							<a className="text-nowrap">Number of Pages</a>
+						<li onClick={() => setSortType("pageNumber")} className="w-full">
+							<a className="text-nowrap w-full justify-center">Number of Pages</a>
 						</li>
-						<li onClick={() => setSortType("publishYear")}>
-							<a className="text-nowrap">Publisher Year</a>
+						<li onClick={() => setSortType("publishYear")} className="w-full">
+							<a className="text-nowrap w-full justify-center">Publisher Year</a>
 						</li>
 					</ul>
 				</details>
