@@ -17,15 +17,15 @@ const ListedBooks = () => {
 						<p className="text-lg font-semibold">Sort By</p>
 						<BiSolidChevronDown className="text-xl" />
 					</summary>
-					<ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-gray-300">
+					<ul className="p-2 shadow menu dropdown-content z-[10] rounded-box bg-gray-300 font-semibold items-center">
 						<li onClick={() => setSortType("rating")}>
-							<a>Rating</a>
+							<a className="text-nowrap">Rating</a>
 						</li>
 						<li onClick={() => setSortType("pageNumber")}>
-							<a>Number of Pages</a>
+							<a className="text-nowrap">Number of Pages</a>
 						</li>
 						<li onClick={() => setSortType("publishYear")}>
-							<a>Publisher Year</a>
+							<a className="text-nowrap">Publisher Year</a>
 						</li>
 					</ul>
 				</details>
